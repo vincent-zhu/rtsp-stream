@@ -1,11 +1,11 @@
-DOCKER_VERSION?=2
+DOCKER_VERSION?=3
 
 test: ## Runs tests
 	go test ./...
 run:  ## Builds & Runs the application
 	go build . && ./rtsp-stream
 docker-build:  ## Builds normal docker container
-	docker build -t roverr/rtsp-stream:${DOCKER_VERSION} .
+	docker build -t ds/rtsp-stream:${DOCKER_VERSION} .
 docker-debug: ## Builds the image and starts it in debug mode
 	rm -rf ./log && mkdir log && \
 	$(MAKE) docker-build && \
